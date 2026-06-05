@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Wrangler / Cloudflare local dev state
+.wrangler/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local env / secrets
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# Wrangler generated / cache
+.mf/

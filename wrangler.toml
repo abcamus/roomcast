@@ -1,0 +1,29 @@
+name = "roomcast"
+main = "src/index.ts"
+compatibility_date = "2026-05-05"
+
+# Use Cloudflare worker dev domain by default. Comment this if you have your own domain
+workers_dev = true
+
+# Use routes to define your own domain
+# routes = [
+#   { pattern = "roomcast.example.com", custom_domain = true }
+# ]
+
+[vars]
+# 可选：为空则不校验 token
+RELAY_SHARED_TOKEN = ""
+MAX_RELAY_PAYLOAD_CHARS = "2097152"
+MAX_ROOM_PEERS = "8"
+HEARTBEAT_TIMEOUT_MS = "60000"
+HEARTBEAT_SWEEP_INTERVAL_MS = "20000"
+MIN_PONG_INTERVAL_MS = "15000"
+ENABLE_INFO_LOG = "false"
+
+[[durable_objects.bindings]]
+name = "RELAY_GATEWAY_DO"
+class_name = "RelayGatewayDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RelayGatewayDO"]
